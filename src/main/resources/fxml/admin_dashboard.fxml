@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.studentmanagement.gui.AdminDashboardController" spacing="20">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Text text="Admin Dashboard" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Logout" onAction="#handleLogout" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TabPane>
+        <Tab text="Student Management">
+            <VBox spacing="10">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Add New Student" onAction="#handleAddStudent" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Button text="Refresh" onAction="#handleRefresh" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                </HBox>
+
+                <TableView fx:id="studentTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="usernameColumn" text="Username" prefWidth="100"/>
+                        <TableColumn fx:id="nameColumn" text="Name" prefWidth="150"/>
+                        <TableColumn fx:id="emailColumn" text="Email" prefWidth="200"/>
+                        <TableColumn fx:id="mobileColumn" text="Mobile" prefWidth="100"/>
+                        <TableColumn fx:id="courseColumn" text="Course" prefWidth="100"/>
+                        <TableColumn fx:id="programColumn" text="Program" prefWidth="100"/>
+                        <TableColumn fx:id="streamColumn" text="Stream" prefWidth="100"/>
+                        <TableColumn fx:id="hostellerColumn" text="Hosteller" prefWidth="80"/>
+                        <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="200"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <Tab text="Reports">
+            <VBox spacing="10">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="reportTypeComboBox" promptText="Select Report Type"/>
+                    <Button text="Generate Report" onAction="#handleGenerateReport" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+                </HBox>
+                <TextArea fx:id="reportArea" VBox.vgrow="ALWAYS" editable="false"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+    <Label fx:id="statusLabel" style="-fx-text-fill: #2196F3;"/>
+</VBox> 
